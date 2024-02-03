@@ -1,0 +1,1 @@
+Excerpted from [logic bomb](https://github.com/hxuhack/logic_bombs)
