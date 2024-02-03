@@ -10,7 +10,7 @@ int main() {
 
   // CHECK-DAG: Zero
   // CHECK-DAG: One 
-  int n = strxfrm(NULL, str, 0); // retrieve the length
+  int r = strxfrm(NULL, str, 0); // retrieve the length
   if (r == 0) printf("Zero\n");
   else if (r == 1) printf("One\n");
   else klee_assert(0 && "sanity check\n");
@@ -19,4 +19,3 @@ int main() {
   
   return 0;
 }
-

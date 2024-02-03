@@ -11,7 +11,7 @@ int main() {
   // CHECK-DAG: Equal
   // CHECK-DAG: Greater 
   // CHECK-DAG: Less 
-  int r = strcmp(str, "e");
+  int r = strncmp(str, "e", 1);
   if (r == 0) printf("Equal\n");
   else if (r > 0) printf("Greater\n");
   else printf("Less\n");
@@ -20,4 +20,3 @@ int main() {
   
   return 0;
 }
-
