@@ -11,7 +11,7 @@ int main() {
   // CHECK-DAG: Equal
   // CHECK-DAG: Greater 
   // CHECK-DAG: Less 
-  int r = memcmp(str, "e");
+  int r = memcmp(str, "e", 1);
   if (r == 0) printf("Equal\n");
   else if (r > 0) printf("Greater\n");
   else printf("Less\n");

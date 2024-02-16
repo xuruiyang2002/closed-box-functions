@@ -10,7 +10,7 @@ int main () {
 
   // CHECK-DAG: Yes
   // CHECK-DAG: No
-  memcpy(dest, src);
+  memcpy(dest, src, 1);
   if (dest[0] == 'e') {
     // str[0] is 'e'
     printf ("Yes\n");

@@ -3,7 +3,7 @@
 #include <string.h>
 
 int main () {
-  char src[2], dest[2];
+  char src[2], dest[3] = "a";
 
   klee_make_symbolic(src, sizeof(src), "array");
   klee_assume(src[1] == '\0');
@@ -11,7 +11,7 @@ int main () {
   // CHECK-DAG: Yes
   // CHECK-DAG: No
   strcat(dest, src);
-  if (dest[0] == 'e') {
+  if (dest[1] == 'e') {
     // str[0] is 'e'
     printf ("Yes\n");
   } else {
