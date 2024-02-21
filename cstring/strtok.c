@@ -6,7 +6,7 @@ int main () {
   char str[] ="a-";
   const char deli;
  
-  klee_make_symbolic(deli, sizeof(deli), "deli");
+  klee_make_symbolic(&deli, sizeof(deli), "deli");
   
   // CHECK-DAG: Yes
   // CHECK-DAG: No

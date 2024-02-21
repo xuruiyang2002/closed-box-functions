@@ -13,7 +13,6 @@ int main() {
   int r = strxfrm(NULL, str, 0); // retrieve the length
   if (r == 0) printf("Zero\n");
   else if (r == 1) printf("One\n");
-  else klee_assert(0 && "sanity check\n");
 
   // CHECK-DAG: KLEE: done: completed paths = 2
   

@@ -10,7 +10,7 @@ int main () {
 
   // CHECK-DAG: Yes
   // CHECK-DAG: No
-  char *p = (char*)memchr(str, 'e', 2);
+  char *p = (char*)memchr(str, 'e', 1);
   if (p == str) {
     // str[0] is 'e'
     printf ("Yes\n");

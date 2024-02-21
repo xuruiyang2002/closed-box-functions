@@ -6,7 +6,7 @@ int main () {
   char str[2] = "e";
   int ch;
 
-  klee_make_symbolic(ch, sizeof(ch), "ch");
+  klee_make_symbolic(&ch, sizeof(ch), "ch");
 
   // CHECK-DAG: Yes
   // CHECK-DAG: No 

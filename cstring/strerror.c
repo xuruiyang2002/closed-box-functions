@@ -6,7 +6,7 @@
 int main() {
   int errnum;
 
-  klee_make_symbolic(errnum, sizeof(errnum), "errnum");
+  klee_make_symbolic(&errnum, sizeof(errnum), "errnum");
 
   // CHECK-DAG: Yes
   // CHECK-DAG: No
