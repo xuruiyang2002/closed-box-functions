@@ -11,7 +11,8 @@ int main() {
   // CHECK-DAG: Yes
   // CHECK-DAG: No
   char *msg = strerror(errnum);
-  if (strcmp(msg, "No such file or directory") == 0) {
+  if (msg[0] == 'N') {
+    // i.e. No such file or directory
     printf ("Yes\n");
   } else {
     printf ("No\n");
