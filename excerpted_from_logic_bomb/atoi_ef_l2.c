@@ -1,5 +1,4 @@
-#include <string.h> 
-#include <math.h>
+#include <stdlib.h>
 #include "klee/klee.h"
 #include "a_tester.h"
 
