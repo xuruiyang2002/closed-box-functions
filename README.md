@@ -24,7 +24,7 @@ For example,
 TBD
 
 ## `floating_point`
-TBD
+Several test cases related to floating point numbers. These test cases are based on logic and re-modified.
 
 ## `network  non_linear`
 TBD
