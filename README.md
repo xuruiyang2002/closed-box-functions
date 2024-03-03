@@ -28,3 +28,7 @@ Several test cases related to floating point numbers. These test cases are based
 
 ## `network  non_linear`
 TBD
+
+## `legacy_test_cases`
+These are old examples previously used for regression testing, including `example.c` mentioned by recolossus paper.
+
