@@ -1,1 +1,7 @@
-.vscode/*
+**/vscode
+
+*.bc
+
+**/klee-*
+
+*.smt2
