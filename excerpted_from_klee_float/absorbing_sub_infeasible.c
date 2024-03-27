@@ -27,4 +27,3 @@ int main() {
 // CHECK: sub x absorbed
 // CHECK-NOT: silently concretizing (reason: floating point)
 // CHECK: KLEE: done: completed paths = 1
-

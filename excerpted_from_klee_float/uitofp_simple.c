@@ -5,14 +5,16 @@
 #include "klee/klee.h"
 #include <assert.h>
 #include <stdio.h>
+#include <stdint.h>
 
 int main() {
   float x;
-  double y;
-  klee_make_symbolic(&x, sizeof(float), "x");
-  klee_assume(x > 0.0f); // This also implies x isn't a NaN
-  y = (double) x;
-  assert(y > 0.0);
+  uint32_t y;
+  klee_make_symbolic(&y, sizeof(uint32_t), "y");
+  x = (float) y;
+  assert(klee_is_symbolic(x));
+  assert( x >= 0.0f);
+  assert( x <= 0x1.000000p32); // x <= 2^32
   return 0;
 }
 // CHECK-NOT: silently concretizing (reason: floating point)

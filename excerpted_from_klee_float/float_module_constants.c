@@ -16,4 +16,3 @@ int main() {
   return 0;
 }
 // CHECK: KLEE: done: completed paths = 1
-

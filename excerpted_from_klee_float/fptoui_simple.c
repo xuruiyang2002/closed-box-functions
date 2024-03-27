@@ -19,4 +19,3 @@ int main() {
 }
 // CHECK-NOT: silently concretizing (reason: floating point)
 // CHECK: KLEE: done: completed paths = 1
-

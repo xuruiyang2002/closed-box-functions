@@ -43,4 +43,3 @@ int main() {
 // CHECK-DAG: KLEE_FP_RZ
 
 // CHECK-DAG: KLEE: done: completed paths = 6
-

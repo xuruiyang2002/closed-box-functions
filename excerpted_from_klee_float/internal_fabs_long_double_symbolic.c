@@ -1,6 +1,6 @@
 // RUN: %llvmgcc %s -emit-llvm -O0 -g -c -o %t1.bc
 // RUN: rm -rf %t.klee-out
-// RUN: %klee --output-dir=%t.klee-out -internal-fabs=true --exit-on-error %t1.bc > %t-output.txt 2>&1
+// RUN: %klee --output-dir=%t.klee-out --exit-on-error %t1.bc > %t-output.txt 2>&1
 // RUN: FileCheck -input-file=%t-output.txt %s
 // REQUIRES: x86_64
 #include "klee/klee.h"
@@ -14,7 +14,7 @@ int main() {
   long double x = 0.0f;
   klee_make_symbolic(&x, sizeof(long double), "x");
 
-  long double result = fabsl(x);
+  long double result = klee_abs_long_double(x);
 
   if (isnan(x)) {
     if (signbit(x)) {

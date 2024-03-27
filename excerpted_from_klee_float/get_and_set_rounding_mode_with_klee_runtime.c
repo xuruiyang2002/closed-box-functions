@@ -26,4 +26,3 @@ int main() {
   assert(klee_get_rounding_mode() == KLEE_FP_RZ);
   return 0;
 }
-

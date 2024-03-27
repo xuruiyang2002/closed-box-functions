@@ -1,8 +1,7 @@
 // RUN: %llvmgcc %s -emit-llvm -O0 -g -c -o %t1.bc
 // RUN: rm -rf %t.klee-out
-// RUN: %klee --output-dir=%t.klee-out -internal-fabs=true --exit-on-error %t1.bc > %t-output.txt 2>&1
+// RUN: %klee --output-dir=%t.klee-out --exit-on-error %t1.bc > %t-output.txt 2>&1
 // RUN: FileCheck -input-file=%t-output.txt %s
-// REQUIRES: x86_64
 #include "klee/klee.h"
 #include <assert.h>
 #include <float.h>
@@ -11,10 +10,10 @@
 #include <stdint.h>
 
 int main() {
-  long double x = 0.0f;
-  klee_make_symbolic(&x, sizeof(long double), "x");
+  double x = 0.0f;
+  klee_make_symbolic(&x, sizeof(double), "x");
 
-  long double result = fabsl(x);
+  double result = klee_abs_double(x);
 
   if (isnan(x)) {
     if (signbit(x)) {
@@ -42,7 +41,7 @@ int main() {
     return 0;
   }
 
-  if (x == 0.0l) {
+  if (x == 0.0) {
     if (signbit(x)) {
       // CHECK-DAG: -ve 0.0
       printf("-ve 0.0\n");
@@ -51,13 +50,13 @@ int main() {
       printf("+ve 0.0\n");
     }
     assert(!signbit(result));
-    assert(result == 0.0l);
+    assert(result == 0.0);
     return 0;
   }
 
   // CHECK-DAG: result > 0.0
   printf("result > 0.0\n");
-  assert(result > 0.0l);
+  assert(result > 0.0);
 
   return 0;
 }

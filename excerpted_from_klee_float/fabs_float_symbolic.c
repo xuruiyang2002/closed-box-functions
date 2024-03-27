@@ -61,4 +61,3 @@ int main() {
   return 0;
 }
 // CHECK-DAG: KLEE: done: completed paths = 7
-

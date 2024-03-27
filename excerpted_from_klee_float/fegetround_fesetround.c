@@ -35,4 +35,3 @@ int main() {
   assert(fegetround() == newRm);
   return 0;
 }
-

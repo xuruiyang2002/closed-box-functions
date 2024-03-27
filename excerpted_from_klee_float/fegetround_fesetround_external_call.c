@@ -53,4 +53,3 @@ int main(int argc, char **argv) {
   assert(r.rne > r.rd);
   return 0;
 }
-
